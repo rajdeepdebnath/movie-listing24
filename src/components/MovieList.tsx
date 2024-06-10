@@ -1,6 +1,7 @@
 import React from "react";
 import { useGetDataByPageNoQuery } from "../redux/api/movieApi";
 import { Content } from "../redux/api/types/DataResponse";
+import Movie from "./Movie";
 
 interface Props {
   pageNo: number;
@@ -15,9 +16,7 @@ const MovieList = ({ pageNo }: Props) => {
     <>
       {data &&
         data.content.map((i: Content, idx) => (
-          <li key={idx} style={{ margin: "20px" }}>
-            {i.name}
-          </li>
+          <Movie key={idx} name={i.name} imageName={i["poster-image"]} />
         ))}
     </>
   );

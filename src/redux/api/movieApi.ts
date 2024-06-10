@@ -9,8 +9,6 @@ export const movieApi = createApi({
     getDataByPageNo: builder.query({
       query: (pageNo: number) => `data/page${pageNo}.json`,
       transformResponse: (response: ApiResponse, meta, arg): DataResponse => {
-        console.log(response);
-
         return {
           content: response.page["content-items"].content,
           pageNo: +response.page["page-num-requested"],
